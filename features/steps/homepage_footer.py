@@ -1,11 +1,20 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
-from time import sleep
 
 
 @given('User is on homepage')
 def open_homepage(context):
     context.app.homepage.open_homepage()
+
+
+@given('Clicks on search icon')
+def click_search_icon(context):
+    context.app.homepage.click_search_icon()
+
+
+@given('User searches for {goods}')
+def search_input(context, goods):
+    context.app.homepage.search_input(goods)
 
 
 @when('User scrolls down to footer')

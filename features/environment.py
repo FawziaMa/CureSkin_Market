@@ -1,9 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from app.application import Application
+from selenium.webdriver.chrome.options import Options
 
-driver = webdriver.Chrome(
-    executable_path=r'C:\Users\ledad\OneDrive\Desktop\Careerist_Internship\careerist_internship\chromedriver.exe')
+opt = Options()
+opt.add_argument("--headless")
 
 
 def browser_init(context):
@@ -11,9 +12,9 @@ def browser_init(context):
     :param context: Behave context
     """
 
-    context.driver = webdriver.Chrome()
+    context.driver = webdriver.Chrome(executable_path='../../chromedriver.exe')
     # context.browser = webdriver.Safari()
-    # context.browser = webdriver.Firefox()
+    context.browser = webdriver.Firefox(executable_path="../geckodriver.exe")
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)

@@ -8,7 +8,11 @@ TERMS_OF_SERVICE = (By. XPATH, "//a[@href='/policies/terms-of-service']")
 TERMS_PAGE_TITLE = (By. XPATH, "//div[@class='shopify-policy__title']//h1['Terms of service']")
 
 
+SEARCH_ICON = (By.CSS_SELECTOR, '.header__search')
+
+
 class Homepage(Page):
+    SEARCH_BAR = (By.ID, "Search-In-Modal")
 
     def open_homepage(self):
         self.driver.get("https://shop.cureskin.com/")
@@ -21,3 +25,11 @@ class Homepage(Page):
 
     def verify_terms_page(self):
         self.driver.find_element(*TERMS_PAGE_TITLE).text()
+
+    def click_search_icon(self):
+        self.click(*SEARCH_ICON)
+
+    def search_input(self, goods):
+        self.input_text(goods, *self.SEARCH_BAR)
+        self.click(*SEARCH_ICON)
+
