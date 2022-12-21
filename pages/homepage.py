@@ -5,10 +5,10 @@ from selenium.webdriver.support.ui import Select
 
 
 TERMS_OF_SERVICE = (By. XPATH, "//a[@href='/policies/terms-of-service']")
-TERMS_PAGE_TITLE = (By. XPATH, "//div[@class='shopify-policy__title']//h1['Terms of service']")
 
 
 SEARCH_ICON = (By.CSS_SELECTOR, '.header__search')
+TERMS_PAGE_TITLE = (By.XPATH, "//div[@class='shopify-policy__title']//h1['Terms of service']")
 
 
 class Homepage(Page):
@@ -24,7 +24,7 @@ class Homepage(Page):
         self.driver.find_element(*TERMS_OF_SERVICE).click()
 
     def verify_terms_page(self):
-        self.driver.find_element(*TERMS_PAGE_TITLE).text()
+        self.driver.find_element(*TERMS_PAGE_TITLE)
 
     def click_search_icon(self):
         self.click(*SEARCH_ICON)

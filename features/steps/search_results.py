@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
 ALL_PRODUCTS = (By. ID, '#ProductGridContainer')
-#
+
 # @when('User clicks on a product')
 # def product_click(context):
 #     all_product = context.driver.find_elements(*ALL_PRODUCTS)
@@ -15,4 +15,4 @@ ALL_PRODUCTS = (By. ID, '#ProductGridContainer')
 #     context.app.SearchResults.product_click()
 #
 #
-
+#

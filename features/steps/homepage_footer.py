@@ -28,6 +28,6 @@ def click_terms_of_service(context):
 
 
 @then('Verify {expected_title} page opened')
-def verify_terms_page(context, expected_title,):
-    actual_title = context.homepage.verify_terms_page(expected_title)
+def verify_terms_page(context, expected_title):
+    actual_title = context.homepage.verify_terms_page()
     assert actual_title == expected_title
