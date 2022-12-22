@@ -5,10 +5,8 @@ from selenium.webdriver.support.ui import Select
 
 
 TERMS_OF_SERVICE = (By. XPATH, "//a[@href='/policies/terms-of-service']")
-
-
 SEARCH_ICON = (By.CSS_SELECTOR, '.header__search')
-TERMS_PAGE_TITLE = (By.XPATH, "//div[@class='shopify-policy__title']//h1['Terms of service']")
+TERMS_PAGE_TITLE = (By.XPATH, "//*[text()='Terms of service']")
 
 
 class Homepage(Page):

@@ -4,4 +4,4 @@ Feature: Search Results
     And Clicks on search icon
     And User searches for cure
     When  User clicks on a product
-#    Then User is taken to product page
+   Then User is taken to product page
