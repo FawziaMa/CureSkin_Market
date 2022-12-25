@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 
@@ -12,9 +14,15 @@ def click_search_icon(context):
     context.app.homepage.click_search_icon()
 
 
+@given('Clicks on search icon again')
+def click_search_icon(context):
+    context.app.homepage.click_search_icon_header()
+
+
 @given('User searches for {goods}')
 def search_input(context, goods):
     context.app.homepage.search_input(goods)
+
 
 
 @when('User scrolls down to footer')
@@ -22,13 +30,14 @@ def scroll_to_footer(context):
     context.app.homepage.scroll_to_footer()
 
 
-@when('Clicks "Terms of Service"')
-def click_terms_of_service(context):
+@when('Clicks {footer_link}')
+def click_terms_of_service(context, footer_link):
     context.app.homepage.click_terms_of_service()
 
 
 @then('Verify {expected_title} page opened')
-def verify_terms_page(context, expected_title):
-    actual_title = context.driver.find_element(By.XPATH, "//*[text()='Terms of service']").text
-    assert actual_title == expected_title, f" Error expected {expected_title} but got {actual_title}"
+def verify_links_page(context, expected_title):
+    context.app.homepage.verify_links_page(expected_title)
+
+
 

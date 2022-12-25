@@ -12,20 +12,24 @@ def browser_init(context, test_name):
     :param context: Behave context
     """
 
-    context.driver = webdriver.Chrome(executable_path='../../chromedriver.exe', chrome_options=opt)
+    context.driver = webdriver.Chrome(executable_path='chromedriver.exe',chrome_options=opt)
     # context.browser = webdriver.Safari()
     # context.browser = webdriver.Firefox(executable_path="../geckodriver.exe")
 
     #for browserstack ##
-    desired_cap = {
-        'browser': 'Chrome',
-        'os_version': '108',
-        'name': test_name
-    }
-    bs_user = "fawziamasud_kNC9b3"
-    bs_key = "ditULBsjzAEVyAJEhyHJ"
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
+    # desired_cap = {
+    #     'browser': 'Chrome',
+    #     'os_version': '108',
+    #     'name': test_name
+    # }
+    # bs_user = "fawziamasud_kNC9b3"
+    # bs_key = "ditULBsjzAEVyAJEhyHJ"
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    # context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
+
+    # Allure command:
+    # behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/product_page.feature
+
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)

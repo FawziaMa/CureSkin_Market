@@ -3,10 +3,12 @@ from behave import given, when, then
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
+EXPECTED_PRODUCT_URL = (By. XPATH, "//h1[@class='product__title'][contains(text(), 'CureSkin Under Eye Gel')]")
+
 
 class ProductPage(Page):
-
-    def open_product_page(self, product):
-        self.driver.get('https://shop.cureskin.com/products/cureskin-under-eye-gel?_pos=1&_sid=fc88dee3b&_ss=r')
+    def verify_product_page(self, expected_product):
+        actual_product = self.driver.find_element(*EXPECTED_PRODUCT_URL).text
+        assert actual_product == expected_product
 
 
